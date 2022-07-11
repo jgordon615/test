@@ -1,0 +1,27 @@
+<html>
+<body>
+	this is the default index.html
+	<script>
+		async function registerServiceWorker() {
+			const reg = await navigator.serviceWorker.register(
+				'*', 
+				{
+					scope: '*'
+				}
+			);
+			
+			if (reg.installing) {
+				console.log("Installing");
+			} else if (reg.waiting) {
+				console.log("Installed");
+			} else if (reg.active) {
+				console.log("Active");
+			}
+		}
+		
+		registerServiceWorker();
+		
+		console.log(navigator.serviceWorker);
+	</script>
+</body>
+</html>
